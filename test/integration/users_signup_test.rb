@@ -21,7 +21,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password:              "password",
                                          password_confirmation: "password" } }
     end
-    follow_redirect!
+    # redirect_to @user
+    follow_redirect!  # リダイレクトが実行される。
     assert_template 'users/show'
   end
 end
