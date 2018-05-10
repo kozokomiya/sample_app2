@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     #@user = User.new(params[:user])   # <= マスアサイメント脆弱性がある。
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       flash[:success] = "Welcome to the Sample App!"
       # redirect_to "/users/#{@user.id}"
       # redirect_to user_path(@user.id)

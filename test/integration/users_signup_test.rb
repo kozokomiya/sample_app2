@@ -24,5 +24,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     # redirect_to @user
     follow_redirect!  # リダイレクトが実行される。
     assert_template 'users/show'
+    assert is_logged_in?
   end
 end
