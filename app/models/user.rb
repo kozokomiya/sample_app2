@@ -23,7 +23,12 @@ class User < ApplicationRecord
 
   # 永続セッションのためにユーザーをデータベースに記憶する
   def remember
+    # 代入文の左辺では、selfが省略できない
     self.remember_token = User.new_token
+  
+    #validation_attributeはValidationをかけない。
+    #ここでは、ユーザからの入力ではないので、
+    #validationをかける必要がないからvalidation_attributeを使う。
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
