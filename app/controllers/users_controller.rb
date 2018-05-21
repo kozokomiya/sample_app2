@@ -23,12 +23,15 @@ class UsersController < ApplicationController
     #@user = User.new(params[:user])   # <= マスアサイメント脆弱性がある。
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = "Welcome to the Sample App!"
-      # redirect_to "/users/#{@user.id}"
-      # redirect_to user_path(@user.id)
-      # redirect_to user_path(@user)
-      redirect_to @user     # => GET /user/#{@user.id} => show
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
+#      log_in @user
+#      flash[:success] = "Welcome to the Sample App!"
+#      # redirect_to "/users/#{@user.id}"
+#      # redirect_to user_path(@user.id)
+#      # redirect_to user_path(@user)
+#      redirect_to @user     # => GET /user/#{@user.id} => show
     else
       render 'new'
     end
