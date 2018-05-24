@@ -19,4 +19,5 @@ Rails.application.routes.draw do
     # params[:id] <== 有効化トークン
     # Controller: params[:id]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :microposts,      only: [:create, :destroy]
 end
