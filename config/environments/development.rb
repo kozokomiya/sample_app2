@@ -30,7 +30,7 @@ Rails.application.configure do
 #  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :test
-  host = 'https://485f8a5d95f04c049196778b47f7465b.vfs.cloud9.us-west-2.amazonaws.com' #自分の環境
+  host = 'https://158326d9a0ee4e6da4d33bb13319a354.vfs.cloud9.us-west-2.amazonaws.com/' #自分の環境
   config.action_mailer.default_url_options = { host: host, protocol: 'https' }  
   
 
